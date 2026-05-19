@@ -10,9 +10,27 @@ import SwiftUI
 
 @main
 struct ListerApp: App {
+    private let environmentResult = Result {
+        try AppEnvironment.live()
+    }
+
     var body: some Scene {
         WindowGroup {
-            Text("Lister")
+            switch environmentResult {
+            case .success(let environment):
+                MovieBrowserView(
+                    viewModel: MovieBrowserViewModel(
+                        repository: environment.movieRepository,
+                        statisticsProvider: environment.movieStatisticsProvider
+                    )
+                )
+            case .failure(let error):
+                ContentUnavailableView {
+                    Label("Configuration Error", systemImage: "exclamationmark.triangle")
+                } description: {
+                    Text(error.localizedDescription)
+                }
+            }
         }
     }
 }
