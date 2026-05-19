@@ -1,0 +1,5 @@
+// Copyright (c) 2026 Lusine Magauzyan.
+//
+// Copy this file to Config.xcconfig and set TMDB_ACCESS_TOKEN to your TMDB
+// v4 Read Access Token. The app uses Authorization: Bearer <token>.
+TMDB_ACCESS_TOKEN = 
