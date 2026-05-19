@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		010000000000000000000001 /* ListerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000001 /* ListerApp.swift */; };
+		010000000000000000000002 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000002 /* AppEnvironment.swift */; };
+		010000000000000000000003 /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000003 /* AppConfiguration.swift */; };
+		010000000000000000000004 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000004 /* APIClient.swift */; };
+		010000000000000000000005 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000005 /* Endpoint.swift */; };
+		010000000000000000000006 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000006 /* HTTPClient.swift */; };
+		010000000000000000000007 /* JSONDecoder+TMDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000007 /* JSONDecoder+TMDB.swift */; };
+		010000000000000000000008 /* TMDBEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000008 /* TMDBEndpoint.swift */; };
+		010000000000000000000009 /* TMDBImageURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000009 /* TMDBImageURLBuilder.swift */; };
+		01000000000000000000000A /* MoviePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000000A /* MoviePage.swift */; };
+		01000000000000000000000B /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000000B /* MovieRepository.swift */; };
+		01000000000000000000000C /* TMDBMovieModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000000C /* TMDBMovieModels.swift */; };
+		01000000000000000000000D /* TMDBMovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000000D /* TMDBMovieRepository.swift */; };
+		010000000000000000000019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000001B /* Assets.xcassets */; };
+		01000000000000000000001A /* MovieStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000001C /* MovieStatisticsTests.swift */; };
+		01000000000000000000001B /* Array+Limited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000001D /* Array+Limited.swift */; };
+		01000000000000000000001C /* String+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000001E /* String+Convenience.swift */; };
+		01000000000000000000001D /* MovieStatisticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000001F /* MovieStatisticsProvider.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		010000000000000000000017 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 090000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 030000000000000000000001;
+			remoteInfo = Lister;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		020000000000000000000001 /* ListerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListerApp.swift; sourceTree = "<group>"; };
+		020000000000000000000002 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		020000000000000000000003 /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		020000000000000000000004 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		020000000000000000000005 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		020000000000000000000006 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		020000000000000000000007 /* JSONDecoder+TMDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+TMDB.swift"; sourceTree = "<group>"; };
+		020000000000000000000008 /* TMDBEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBEndpoint.swift; sourceTree = "<group>"; };
+		020000000000000000000009 /* TMDBImageURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBImageURLBuilder.swift; sourceTree = "<group>"; };
+		02000000000000000000000A /* MoviePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePage.swift; sourceTree = "<group>"; };
+		02000000000000000000000B /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
+		02000000000000000000000C /* TMDBMovieModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieModels.swift; sourceTree = "<group>"; };
+		02000000000000000000000D /* TMDBMovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieRepository.swift; sourceTree = "<group>"; };
+		020000000000000000000017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		020000000000000000000018 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = SOURCE_ROOT; };
+		020000000000000000000019 /* Lister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lister.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02000000000000000000001A /* ListerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ListerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02000000000000000000001B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		02000000000000000000001C /* MovieStatisticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStatisticsTests.swift; sourceTree = "<group>"; };
+		02000000000000000000001D /* Array+Limited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Limited.swift"; sourceTree = "<group>"; };
+		02000000000000000000001E /* String+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Convenience.swift"; sourceTree = "<group>"; };
+		02000000000000000000001F /* MovieStatisticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStatisticsProvider.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		040000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		040000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		020000000000000000000020 = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000018 /* Config.xcconfig */,
+				020000000000000000000021 /* Lister */,
+				02000000000000000000002D /* ListerTests */,
+				020000000000000000000030 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		020000000000000000000021 /* Lister */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000001 /* ListerApp.swift */,
+				020000000000000000000022 /* Core */,
+				020000000000000000000026 /* Features */,
+				02000000000000000000002C /* Resources */,
+			);
+			path = Lister;
+			sourceTree = "<group>";
+		};
+		020000000000000000000022 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000002 /* AppEnvironment.swift */,
+				020000000000000000000023 /* Configuration */,
+				020000000000000000000032 /* Extensions */,
+				020000000000000000000024 /* Networking */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		020000000000000000000023 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000003 /* AppConfiguration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		020000000000000000000024 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000004 /* APIClient.swift */,
+				020000000000000000000005 /* Endpoint.swift */,
+				020000000000000000000006 /* HTTPClient.swift */,
+				020000000000000000000008 /* TMDBEndpoint.swift */,
+				020000000000000000000009 /* TMDBImageURLBuilder.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		020000000000000000000026 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000027 /* Movies */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		020000000000000000000027 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000028 /* Data */,
+				020000000000000000000029 /* Domain */,
+				02000000000000000000002A /* Models */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		020000000000000000000028 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				02000000000000000000000C /* TMDBMovieModels.swift */,
+				02000000000000000000000D /* TMDBMovieRepository.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		020000000000000000000029 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				02000000000000000000000B /* MovieRepository.swift */,
+				02000000000000000000001F /* MovieStatisticsProvider.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		02000000000000000000002A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				02000000000000000000000A /* MoviePage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		02000000000000000000002C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				02000000000000000000001B /* Assets.xcassets */,
+				020000000000000000000017 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		02000000000000000000002D /* ListerTests */ = {
+			isa = PBXGroup;
+			children = (
+				02000000000000000000001C /* MovieStatisticsTests.swift */,
+			);
+			path = ListerTests;
+			sourceTree = "<group>";
+		};
+		020000000000000000000030 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000019 /* Lister.app */,
+				02000000000000000000001A /* ListerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		020000000000000000000032 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				02000000000000000000001D /* Array+Limited.swift */,
+				020000000000000000000007 /* JSONDecoder+TMDB.swift */,
+				02000000000000000000001E /* String+Convenience.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		030000000000000000000001 /* Lister */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 060000000000000000000001 /* Build configuration list for PBXNativeTarget "Lister" */;
+			buildPhases = (
+				050000000000000000000001 /* Sources */,
+				040000000000000000000001 /* Frameworks */,
+				070000000000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lister;
+			packageProductDependencies = (
+			);
+			productName = Lister;
+			productReference = 020000000000000000000019 /* Lister.app */;
+			productType = "com.apple.product-type.application";
+		};
+		030000000000000000000002 /* ListerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 060000000000000000000002 /* Build configuration list for PBXNativeTarget "ListerTests" */;
+			buildPhases = (
+				050000000000000000000002 /* Sources */,
+				040000000000000000000002 /* Frameworks */,
+				070000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				010000000000000000000018 /* PBXTargetDependency */,
+			);
+			name = ListerTests;
+			packageProductDependencies = (
+			);
+			productName = ListerTests;
+			productReference = 02000000000000000000001A /* ListerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		090000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				ORGANIZATIONNAME = "Lusine Magauzyan";
+				TargetAttributes = {
+					030000000000000000000001 = {
+						CreatedOnToolsVersion = 26.0;
+					};
+					030000000000000000000002 = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 030000000000000000000001;
+					};
+				};
+			};
+			buildConfigurationList = 060000000000000000000003 /* Build configuration list for PBXProject "Lister" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 020000000000000000000020;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 020000000000000000000030 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				030000000000000000000001 /* Lister */,
+				030000000000000000000002 /* ListerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		070000000000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				010000000000000000000019 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		070000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		050000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				010000000000000000000001 /* ListerApp.swift in Sources */,
+				010000000000000000000002 /* AppEnvironment.swift in Sources */,
+				010000000000000000000003 /* AppConfiguration.swift in Sources */,
+				010000000000000000000004 /* APIClient.swift in Sources */,
+				010000000000000000000005 /* Endpoint.swift in Sources */,
+				010000000000000000000006 /* HTTPClient.swift in Sources */,
+				010000000000000000000007 /* JSONDecoder+TMDB.swift in Sources */,
+				01000000000000000000001B /* Array+Limited.swift in Sources */,
+				01000000000000000000001C /* String+Convenience.swift in Sources */,
+				010000000000000000000008 /* TMDBEndpoint.swift in Sources */,
+				010000000000000000000009 /* TMDBImageURLBuilder.swift in Sources */,
+				01000000000000000000000A /* MoviePage.swift in Sources */,
+				01000000000000000000000B /* MovieRepository.swift in Sources */,
+				01000000000000000000001D /* MovieStatisticsProvider.swift in Sources */,
+				01000000000000000000000C /* TMDBMovieModels.swift in Sources */,
+				01000000000000000000000D /* TMDBMovieRepository.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		050000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01000000000000000000001A /* MovieStatisticsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		010000000000000000000018 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 030000000000000000000001 /* Lister */;
+			targetProxy = 010000000000000000000017 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		080000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 020000000000000000000018 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2RF6DF97D;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Lister/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lussvontrier.Lister;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		080000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 020000000000000000000018 /* Config.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X2RF6DF97D;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Lister/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lussvontrier.Lister;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		080000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lussvontrier.ListerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lister.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lister";
+			};
+			name = Debug;
+		};
+		080000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lussvontrier.ListerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lister.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Lister";
+			};
+			name = Release;
+		};
+		080000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		080000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		060000000000000000000001 /* Build configuration list for PBXNativeTarget "Lister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				080000000000000000000001 /* Debug */,
+				080000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		060000000000000000000002 /* Build configuration list for PBXNativeTarget "ListerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				080000000000000000000003 /* Debug */,
+				080000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		060000000000000000000003 /* Build configuration list for PBXProject "Lister" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				080000000000000000000005 /* Debug */,
+				080000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 090000000000000000000001 /* Project object */;
+}
