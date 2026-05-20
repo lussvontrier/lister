@@ -12,3 +12,11 @@ cp Config.xcconfig.example Config.xcconfig
 ```xcconfig
 TMDB_ACCESS_TOKEN = eyJ...
 ```
+
+4. UIKit and SwiftUI implementations live in separate branches.
+
+- Switch to the `uikit` branch to build the UIKit version.
+- Switch to the `swiftui` branch to build the SwiftUI version.
+
+```sh
+git checkout uikit
