@@ -19,9 +19,6 @@ struct MovieBrowserViewModelTests {
                     MoviePage(
                         id: 1,
                         title: "Movie",
-                        releaseYear: "2026",
-                        rating: 8.2,
-                        overview: "Overview",
                         wallpaperURL: nil,
                         actors: [
                             Actor(id: 1, fullName: "Lily Hart", role: "Detective", imageURL: nil),
