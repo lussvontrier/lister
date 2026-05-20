@@ -45,9 +45,6 @@ struct TMDBMovieRepository: MovieRepository {
                     return MoviePage(
                         id: movie.id,
                         title: movie.title,
-                        releaseYear: movie.releaseDate?.prefix(4).description,
-                        rating: movie.voteAverage,
-                        overview: movie.overview,
                         wallpaperURL: imageURLBuilder.url(for: movie.backdropPath, size: .backdrop),
                         actors: actors
                     )

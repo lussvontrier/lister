@@ -15,9 +15,6 @@ struct TMDBPagedResponse<Result: Decodable & Sendable>: Decodable, Sendable {
 struct TMDBMovieDTO: Decodable, Sendable {
     let id: Int
     let title: String
-    let overview: String
-    let releaseDate: String?
-    let voteAverage: Double?
     let backdropPath: String?
 }
 
