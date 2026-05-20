@@ -6,13 +6,20 @@
 //  Copyright © 2026 Lusine Magauzyan. All rights reserved.
 //
 
-import SwiftUI
+import UIKit
 
 @main
-struct ListerApp: App {
-    var body: some Scene {
-        WindowGroup {
-            Text("Lister")
-        }
+final class ListerApp: UIResponder, UIApplicationDelegate {
+    func application(
+        _ application: UIApplication,
+        configurationForConnecting connectingSceneSession: UISceneSession,
+        options: UIScene.ConnectionOptions
+    ) -> UISceneConfiguration {
+        let configuration = UISceneConfiguration(
+            name: "Default Configuration",
+            sessionRole: connectingSceneSession.role
+        )
+        configuration.delegateClass = SceneDelegate.self
+        return configuration
     }
 }

@@ -25,6 +25,18 @@
 		01000000000000000000001B /* Array+Limited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000001D /* Array+Limited.swift */; };
 		01000000000000000000001C /* String+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000001E /* String+Convenience.swift */; };
 		01000000000000000000001D /* MovieStatisticsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000001F /* MovieStatisticsProvider.swift */; };
+		010000000000000000000030 /* MovieBrowserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000040 /* MovieBrowserViewModel.swift */; };
+		010000000000000000000031 /* MovieBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000041 /* MovieBrowserViewController.swift */; };
+		010000000000000000000032 /* MovieStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000042 /* MovieStatisticsViewController.swift */; };
+		010000000000000000000034 /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000044 /* RemoteImageView.swift */; };
+		010000000000000000000035 /* ActorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000045 /* ActorCell.swift */; };
+		010000000000000000000036 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000046 /* SearchHeaderView.swift */; };
+		010000000000000000000037 /* WallpaperCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000047 /* WallpaperCarouselView.swift */; };
+		010000000000000000000038 /* MovieBrowserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000048 /* MovieBrowserViewModelTests.swift */; };
+		010000000000000000000039 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020000000000000000000049 /* SceneDelegate.swift */; };
+		01000000000000000000003A /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000004A /* ReusableView.swift */; };
+		01000000000000000000003B /* RootViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000004B /* RootViewControllerFactory.swift */; };
+		01000000000000000000003C /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02000000000000000000004C /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +72,18 @@
 		02000000000000000000001D /* Array+Limited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Limited.swift"; sourceTree = "<group>"; };
 		02000000000000000000001E /* String+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Convenience.swift"; sourceTree = "<group>"; };
 		02000000000000000000001F /* MovieStatisticsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStatisticsProvider.swift; sourceTree = "<group>"; };
+		020000000000000000000040 /* MovieBrowserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBrowserViewModel.swift; sourceTree = "<group>"; };
+		020000000000000000000041 /* MovieBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBrowserViewController.swift; sourceTree = "<group>"; };
+		020000000000000000000042 /* MovieStatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStatisticsViewController.swift; sourceTree = "<group>"; };
+		020000000000000000000044 /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		020000000000000000000045 /* ActorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCell.swift; sourceTree = "<group>"; };
+		020000000000000000000046 /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
+		020000000000000000000047 /* WallpaperCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallpaperCarouselView.swift; sourceTree = "<group>"; };
+		020000000000000000000048 /* MovieBrowserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieBrowserViewModelTests.swift; sourceTree = "<group>"; };
+		020000000000000000000049 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		02000000000000000000004A /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		02000000000000000000004B /* RootViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewControllerFactory.swift; sourceTree = "<group>"; };
+		02000000000000000000004C /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				020000000000000000000001 /* ListerApp.swift */,
+				020000000000000000000049 /* SceneDelegate.swift */,
+				02000000000000000000004B /* RootViewControllerFactory.swift */,
 				020000000000000000000022 /* Core */,
 				020000000000000000000026 /* Features */,
 				02000000000000000000002C /* Resources */,
@@ -146,6 +172,7 @@
 				020000000000000000000028 /* Data */,
 				020000000000000000000029 /* Domain */,
 				02000000000000000000002A /* Models */,
+				020000000000000000000050 /* Presentation */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -188,6 +215,7 @@
 		02000000000000000000002D /* ListerTests */ = {
 			isa = PBXGroup;
 			children = (
+				020000000000000000000048 /* MovieBrowserViewModelTests.swift */,
 				02000000000000000000001C /* MovieStatisticsTests.swift */,
 			);
 			path = ListerTests;
@@ -210,6 +238,54 @@
 				02000000000000000000001E /* String+Convenience.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		020000000000000000000050 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000051 /* ViewModels */,
+				020000000000000000000052 /* ViewControllers */,
+				020000000000000000000053 /* Views */,
+				020000000000000000000054 /* Helper */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		020000000000000000000051 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000040 /* MovieBrowserViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		020000000000000000000052 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000041 /* MovieBrowserViewController.swift */,
+				020000000000000000000042 /* MovieStatisticsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		020000000000000000000053 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000045 /* ActorCell.swift */,
+				02000000000000000000004C /* MessageCell.swift */,
+				020000000000000000000044 /* RemoteImageView.swift */,
+				020000000000000000000046 /* SearchHeaderView.swift */,
+				020000000000000000000047 /* WallpaperCarouselView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		020000000000000000000054 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				02000000000000000000004A /* ReusableView.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +396,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				010000000000000000000001 /* ListerApp.swift in Sources */,
+				010000000000000000000039 /* SceneDelegate.swift in Sources */,
+				01000000000000000000003B /* RootViewControllerFactory.swift in Sources */,
 				010000000000000000000002 /* AppEnvironment.swift in Sources */,
 				010000000000000000000003 /* AppConfiguration.swift in Sources */,
 				010000000000000000000004 /* APIClient.swift in Sources */,
@@ -335,6 +413,15 @@
 				01000000000000000000001D /* MovieStatisticsProvider.swift in Sources */,
 				01000000000000000000000C /* TMDBMovieModels.swift in Sources */,
 				01000000000000000000000D /* TMDBMovieRepository.swift in Sources */,
+				010000000000000000000030 /* MovieBrowserViewModel.swift in Sources */,
+				010000000000000000000031 /* MovieBrowserViewController.swift in Sources */,
+				010000000000000000000032 /* MovieStatisticsViewController.swift in Sources */,
+				010000000000000000000034 /* RemoteImageView.swift in Sources */,
+				010000000000000000000035 /* ActorCell.swift in Sources */,
+				01000000000000000000003C /* MessageCell.swift in Sources */,
+				010000000000000000000036 /* SearchHeaderView.swift in Sources */,
+				010000000000000000000037 /* WallpaperCarouselView.swift in Sources */,
+				01000000000000000000003A /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				010000000000000000000038 /* MovieBrowserViewModelTests.swift in Sources */,
 				01000000000000000000001A /* MovieStatisticsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
