@@ -30,8 +30,9 @@ struct TMDBMovieRepository: MovieRepository {
         return await withTaskGroup(of: MoviePage?.self) { group in
             for movie in movies {
                 group.addTask {
-                    let credits = try? await apiClient.send(TMDBEndpoint.movieCredits(movieID: movie.id))
-                    let actors = credits?.cast
+                    guard let credits = try? await apiClient.send(TMDBEndpoint.movieCredits(movieID: movie.id)) else { return nil }
+
+                    let actors = credits.cast
                         .sorted { ($0.order ?? .max) < ($1.order ?? .max) }
                         .map { castMember in
                             Actor(
@@ -40,7 +41,7 @@ struct TMDBMovieRepository: MovieRepository {
                                 role: castMember.character?.nilIfBlank,
                                 imageURL: imageURLBuilder.url(for: castMember.profilePath, size: .profile)
                             )
-                        } ?? []
+                        }
 
                     return MoviePage(
                         id: movie.id,
