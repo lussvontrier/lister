@@ -23,6 +23,7 @@ final class MovieStatisticsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Statistics"
+        tableView.register(StatisticsValueCell.self, forCellReuseIdentifier: StatisticsValueCell.reuseIdentifier)
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .done,
             target: self,
@@ -46,7 +47,12 @@ final class MovieStatisticsViewController: UITableViewController {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: StatisticsValueCell.reuseIdentifier,
+            for: indexPath
+        ) as? StatisticsValueCell else {
+            return UITableViewCell()
+        }
 
         if indexPath.section == 0 {
             if indexPath.row == 0 {
@@ -67,5 +73,15 @@ final class MovieStatisticsViewController: UITableViewController {
 
     @objc private func dismissSheet() {
         dismiss(animated: true)
+    }
+}
+
+private final class StatisticsValueCell: UITableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
