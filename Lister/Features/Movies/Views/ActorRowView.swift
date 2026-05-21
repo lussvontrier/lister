@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct ActorRowView: View {
+    private enum Constants {
+        static let cornerRadius: CGFloat = 8
+    }
+
     let actor: Actor
 
     var body: some View {
@@ -48,7 +52,7 @@ struct ActorRowView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(12)
-        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 8))
+        .background(Color.cyan.opacity(0.12), in: RoundedRectangle(cornerRadius: Constants.cornerRadius))
         .accessibilityElement(children: .combine)
     }
 }

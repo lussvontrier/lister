@@ -126,6 +126,7 @@
 				020000000000000000000023 /* Configuration */,
 				020000000000000000000032 /* Extensions */,
 				020000000000000000000024 /* Networking */,
+				020000000000000000000033 /* UI */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -240,7 +241,6 @@
 				020000000000000000000044 /* ActorListView.swift */,
 				020000000000000000000045 /* ActorRowView.swift */,
 				020000000000000000000046 /* StatisticSheetView.swift */,
-				020000000000000000000047 /* AsyncRemoteImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,6 +253,14 @@
 				02000000000000000000001E /* String+Convenience.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		020000000000000000000033 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				020000000000000000000047 /* AsyncRemoteImageView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -9,6 +9,12 @@
 import SwiftUI
 
 struct WallpaperCarouselView: View {
+    private enum Constants {
+        static let horizontalInset: CGFloat = 16
+        static let cornerRadius: CGFloat = 8
+        static let height: CGFloat = 240
+    }
+
     let pages: [MoviePage]
     @Binding var selectedMovieID: MoviePage.ID
 
@@ -28,14 +34,15 @@ struct WallpaperCarouselView: View {
                                 .foregroundStyle(.secondary)
                         }
                     }
-                .clipShape(RoundedRectangle(cornerRadius: 0))
+                .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius))
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel(page.title)
                 .tag(page.id)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .automatic))
-        .frame(height: 320)
-        .background(Color(.secondarySystemGroupedBackground))
+        .frame(height: Constants.height)
+        .clipShape(RoundedRectangle(cornerRadius: Constants.cornerRadius))
+        .padding(.horizontal, Constants.horizontalInset)
     }
 }

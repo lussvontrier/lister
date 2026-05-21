@@ -28,8 +28,7 @@ struct MovieBrowserView: View {
                     .padding(.bottom, 24)
                 }
             }
-            .navigationTitle("Cast")
-            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.hidden, for: .navigationBar)
             .task {
                 await viewModel.load()
             }
@@ -65,33 +64,41 @@ struct MovieBrowserView: View {
     }
 
     private func loadedContent(pages: [MoviePage]) -> some View {
-        ScrollView {
-            LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
-                WallpaperCarouselView(
-                    pages: pages,
-                    selectedMovieID: Binding(
-                        get: { viewModel.selectedPage?.id ?? pages[0].id },
-                        set: { viewModel.selectMovie(withID: $0) }
-                    )
-                )
-                .padding(.bottom, 8)
-                .scrollTransition(axis: .vertical) { content, phase in
-                    content
-                        .scaleEffect(phase.isIdentity ? 1 : 0.96)
-                        .opacity(phase.isIdentity ? 1 : 0.86)
-                }
+        ZStack(alignment: .top) {
+            GeometryReader { proxy in
+                Color(.systemGroupedBackground)
+                    .frame(height: proxy.safeAreaInsets.top)
+                    .ignoresSafeArea(edges: .top)
+            }
+            .allowsHitTesting(false)
+                .zIndex(1)
 
-                Section {
-                    ActorListView(actors: viewModel.filteredActors)
-                } header: {
-                    SearchHeaderView(
-                        text: $viewModel.searchText,
-                        resultCount: viewModel.filteredActors.count
+            ScrollView {
+                LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                    WallpaperCarouselView(
+                        pages: pages,
+                        selectedMovieID: Binding(
+                            get: { viewModel.selectedPage?.id ?? pages[0].id },
+                            set: { viewModel.selectMovie(withID: $0) }
+                        )
                     )
+                    .padding(.bottom, 8)
+                    .scrollTransition(axis: .vertical) { content, phase in
+                        content
+                            .scaleEffect(phase.isIdentity ? 1 : 0.96)
+                            .opacity(phase.isIdentity ? 1 : 0.86)
+                    }
+
+                    Section {
+                        ActorListView(actors: viewModel.filteredActors)
+                    } header: {
+                        SearchHeaderView(text: $viewModel.searchText)
+                        .zIndex(2)
+                    }
                 }
             }
+            .background(Color(.systemGroupedBackground))
         }
-        .background(Color(.systemGroupedBackground))
         .animation(.snappy, value: viewModel.filteredActors)
     }
 }
