@@ -19,8 +19,15 @@ struct MovieStatisticsTests {
             Actor(id: 4, fullName: "Blueberry", role: nil, imageURL: nil)
         ]
 
-        let statistics = MovieStatistics(movieTitle: "Example", actors: actors)
+        let page = MoviePage(
+            id: 1,
+            title: "Example",
+            wallpaperURL: nil,
+            actors: actors
+        )
+        let statistics = MovieStatisticsProvider().statistics(for: page)
 
+        #expect(statistics.movieTitle == "Example")
         #expect(statistics.itemCount == 4)
         #expect(statistics.topCharacters.map(\.character) == ["a", "e", "b"])
         #expect(statistics.topCharacters.map(\.count) == [5, 4, 3])
