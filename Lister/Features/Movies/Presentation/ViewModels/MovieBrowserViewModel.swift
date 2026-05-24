@@ -66,10 +66,7 @@ final class MovieBrowserViewModel {
         let actors = filteredActors.map(ActorRowPresentation.init(actor:))
         let rows = actors.isEmpty ? [.message(emptyActorMessage)] : actors.map(MovieActorRowPresentation.actor)
         let section = MovieActorSectionPresentation(
-            header: SearchHeaderPresentation(
-                text: searchText,
-                countText: "\(actors.count) cast members"
-            ),
+            header: SearchHeaderPresentation(text: searchText),
             rows: rows
         )
 
@@ -126,13 +123,12 @@ struct MovieBrowserContentPresentation: Equatable {
 struct MovieActorSectionPresentation: Equatable {
     let header: SearchHeaderPresentation
     let rows: [MovieActorRowPresentation]
-    let headerHeight: CGFloat = 82
+    let headerHeight: CGFloat = 60
     let estimatedRowHeight: CGFloat = 88
 }
 
 struct SearchHeaderPresentation: Equatable {
     let text: String
-    let countText: String
 }
 
 struct ActorRowPresentation: Equatable {

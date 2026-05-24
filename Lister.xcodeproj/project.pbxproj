@@ -134,6 +134,7 @@
 				020000000000000000000023 /* Configuration */,
 				020000000000000000000032 /* Extensions */,
 				020000000000000000000024 /* Networking */,
+				020000000000000000000055 /* UI */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -246,7 +247,6 @@
 				020000000000000000000051 /* ViewModels */,
 				020000000000000000000052 /* ViewControllers */,
 				020000000000000000000053 /* Views */,
-				020000000000000000000054 /* Helper */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -273,19 +273,19 @@
 			children = (
 				020000000000000000000045 /* ActorCell.swift */,
 				02000000000000000000004C /* MessageCell.swift */,
-				020000000000000000000044 /* RemoteImageView.swift */,
 				020000000000000000000046 /* SearchHeaderView.swift */,
 				020000000000000000000047 /* WallpaperCarouselView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		020000000000000000000054 /* Helper */ = {
+		020000000000000000000055 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				02000000000000000000004A /* ReusableView.swift */,
+				020000000000000000000044 /* RemoteImageView.swift */,
 			);
-			path = Helper;
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

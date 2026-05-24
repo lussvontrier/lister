@@ -10,12 +10,24 @@ import UIKit
 
 final class WallpaperCarouselView: UIView {
     private enum Layout {
+        static let horizontalInset: CGFloat = 16
+        static let cornerRadius: CGFloat = 8
         static let pageControlBottom: CGFloat = 10
     }
 
     var onPageChange: ((Int) -> Void)?
 
     private var pages: [MoviePage] = []
+    private var selectedIndex = 0
+
+    private lazy var clippingView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = Layout.cornerRadius
+        view.layer.masksToBounds = true
+        view.backgroundColor = .secondarySystemGroupedBackground
+        return view
+    }()
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: makeLayout())
@@ -49,11 +61,16 @@ final class WallpaperCarouselView: UIView {
     }
 
     func configure(pages: [MoviePage], selectedIndex: Int) {
+        let needsReload = self.pages != pages
         self.pages = pages
+        self.selectedIndex = selectedIndex
         pageControl.numberOfPages = pages.count
         pageControl.currentPage = selectedIndex
         pageControl.isHidden = pages.count < 2
-        collectionView.reloadData()
+
+        if needsReload {
+            collectionView.reloadData()
+        }
 
         guard pages.indices.contains(selectedIndex) else { return }
         collectionView.layoutIfNeeded()
@@ -65,17 +82,24 @@ final class WallpaperCarouselView: UIView {
     }
 
     private func configureHierarchy() {
-        addSubview(collectionView)
-        addSubview(pageControl)
+        backgroundColor = .systemGroupedBackground
+        addSubview(clippingView)
+        clippingView.addSubview(collectionView)
+        clippingView.addSubview(pageControl)
 
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            clippingView.topAnchor.constraint(equalTo: topAnchor),
+            clippingView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Layout.horizontalInset),
+            clippingView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Layout.horizontalInset),
+            clippingView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            pageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Layout.pageControlBottom)
+            collectionView.topAnchor.constraint(equalTo: clippingView.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: clippingView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: clippingView.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: clippingView.bottomAnchor),
+
+            pageControl.centerXAnchor.constraint(equalTo: clippingView.centerXAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: clippingView.bottomAnchor, constant: -Layout.pageControlBottom)
         ])
     }
 
@@ -141,7 +165,8 @@ extension WallpaperCarouselView: UICollectionViewDataSource, UICollectionViewDel
     private func notifyCurrentPage() {
         guard collectionView.bounds.width > 0 else { return }
         let index = Int(round(collectionView.contentOffset.x / collectionView.bounds.width))
-        guard pages.indices.contains(index) else { return }
+        guard pages.indices.contains(index), index != selectedIndex else { return }
+        selectedIndex = index
         pageControl.currentPage = index
         onPageChange?(index)
     }

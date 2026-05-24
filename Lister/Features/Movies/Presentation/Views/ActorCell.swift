@@ -11,12 +11,22 @@ import UIKit
 final class ActorCell: UITableViewCell {
     private enum Layout {
         static let portraitSize: CGFloat = 62
-        static let contentInset = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        static let cardInset = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
+        static let contentInset: CGFloat = 12
         static let textSpacing: CGFloat = 4
         static let contentSpacing: CGFloat = 14
         static let cornerRadius: CGFloat = 8
         static let borderWidth: CGFloat = 2
     }
+
+    private lazy var cardView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.systemCyan.withAlphaComponent(0.12)
+        view.layer.cornerRadius = Layout.cornerRadius
+        view.layer.masksToBounds = true
+        return view
+    }()
 
     private lazy var portraitView: RemoteImageView = {
         let view = RemoteImageView()
@@ -80,23 +90,27 @@ final class ActorCell: UITableViewCell {
     }
 
     private func configureHierarchy() {
-        contentView.addSubview(contentStack)
+        contentView.addSubview(cardView)
+        cardView.addSubview(contentStack)
 
         NSLayoutConstraint.activate([
+            cardView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Layout.cardInset.top),
+            cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Layout.cardInset.left),
+            cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Layout.cardInset.right),
+            cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Layout.cardInset.bottom),
+
             portraitView.widthAnchor.constraint(equalToConstant: Layout.portraitSize),
             portraitView.heightAnchor.constraint(equalTo: portraitView.widthAnchor),
-            contentStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Layout.contentInset.top),
-            contentStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Layout.contentInset.left),
-            contentStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Layout.contentInset.right),
-            contentStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Layout.contentInset.bottom)
+            contentStack.topAnchor.constraint(equalTo: cardView.topAnchor, constant: Layout.contentInset),
+            contentStack.leadingAnchor.constraint(equalTo: cardView.leadingAnchor, constant: Layout.contentInset),
+            contentStack.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -Layout.contentInset),
+            contentStack.bottomAnchor.constraint(equalTo: cardView.bottomAnchor, constant: -Layout.contentInset)
         ])
     }
 
     private func configureStyle() {
         selectionStyle = .none
         backgroundColor = .systemGroupedBackground
-        contentView.backgroundColor = .secondarySystemGroupedBackground
-        contentView.layer.cornerRadius = Layout.cornerRadius
-        contentView.layer.masksToBounds = true
+        contentView.backgroundColor = .systemGroupedBackground
     }
 }

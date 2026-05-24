@@ -9,7 +9,10 @@
 import UIKit
 
 final class RemoteImageView: UIImageView {
+    private static let imageCache = NSCache<NSURL, UIImage>()
+
     private var imageTask: Task<Void, Never>?
+    private var currentURL: URL?
 
     init() {
         super.init(frame: .zero)
@@ -26,7 +29,19 @@ final class RemoteImageView: UIImageView {
     }
 
     func setImage(url: URL?, placeholderSystemName: String) {
+        if currentURL == url, image != nil {
+            return
+        }
+
         imageTask?.cancel()
+        currentURL = url
+
+        if let url, let cachedImage = Self.imageCache.object(forKey: url as NSURL) {
+            tintColor = nil
+            image = cachedImage
+            return
+        }
+
         image = UIImage(systemName: placeholderSystemName)
         tintColor = .secondaryLabel
 
@@ -37,6 +52,7 @@ final class RemoteImageView: UIImageView {
                 let (data, _) = try await URLSession.shared.data(from: url)
                 guard !Task.isCancelled, let image = UIImage(data: data) else { return }
                 await MainActor.run {
+                    Self.imageCache.setObject(image, forKey: url as NSURL)
                     self?.tintColor = nil
                     self?.image = image
                 }
@@ -49,6 +65,7 @@ final class RemoteImageView: UIImageView {
     func cancelImageLoad() {
         imageTask?.cancel()
         imageTask = nil
+        currentURL = nil
     }
 
     private func configure() {
