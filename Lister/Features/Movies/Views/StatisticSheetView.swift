@@ -9,6 +9,11 @@
 import SwiftUI
 
 struct StatisticSheetView: View {
+    private enum Constants {
+        static let letterBackground = Color.black
+        static let letterForeground = Color.white
+    }
+
     let statistics: MovieStatistics
 
     var body: some View {
@@ -24,8 +29,9 @@ struct StatisticSheetView: View {
                         HStack {
                             Text(String(item.character).uppercased())
                                 .font(.headline)
+                                .foregroundStyle(Constants.letterForeground)
                                 .frame(width: 34, height: 34)
-                                .background(Color(.secondarySystemGroupedBackground), in: Circle())
+                                .background(Constants.letterBackground, in: Circle())
 
                             Text("\(item.count) appearances")
                                 .foregroundStyle(.secondary)

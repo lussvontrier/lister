@@ -71,7 +71,7 @@ struct MovieBrowserView: View {
                     .ignoresSafeArea(edges: .top)
             }
             .allowsHitTesting(false)
-                .zIndex(1)
+            .zIndex(1)
 
             ScrollView {
                 LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
