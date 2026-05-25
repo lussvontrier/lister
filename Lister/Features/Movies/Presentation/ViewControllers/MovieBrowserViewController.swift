@@ -120,7 +120,6 @@ final class MovieBrowserViewController: UIViewController {
                 return cell
             }
         }
-        dataSource.defaultRowAnimation = .bottom
         return dataSource
     }()
 
@@ -243,23 +242,23 @@ final class MovieBrowserViewController: UIViewController {
         }
 
         searchHeaderView.configure(with: content.actorSection.header)
-        applyActorRows(content.actorSection.rows, animatingDifferences: previousContent != nil)
+        applyActorRows(content.actorSection.rows)
     }
 
     private func configureDataSource() {
         _ = dataSource
     }
 
-    private func applyActorRows(_ rows: [MovieActorRowPresentation], animatingDifferences: Bool) {
+    private func applyActorRows(_ rows: [MovieActorRowPresentation]) {
         var snapshot = ActorSnapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(rows, toSection: .main)
-        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
+        dataSource.apply(snapshot, animatingDifferences: false)
     }
 
     private func renderMessage(_ message: String) {
         contentPresentation = nil
-        applyActorRows([], animatingDifferences: false)
+        applyActorRows([])
         loadingView.stopAnimating()
         tableView.isHidden = true
         statisticsButton.isHidden = true
