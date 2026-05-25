@@ -10,12 +10,19 @@ import Combine
 import UIKit
 
 final class MovieBrowserViewController: UIViewController {
+    private typealias ActorDataSource = UITableViewDiffableDataSource<ActorListSection, MovieActorRowPresentation>
+    private typealias ActorSnapshot = NSDiffableDataSourceSnapshot<ActorListSection, MovieActorRowPresentation>
+
     private enum Layout {
         static let messageHorizontalInset: CGFloat = 28
         static let statisticsButtonSize: CGFloat = 58
         static let statisticsButtonTrailing: CGFloat = 20
         static let statisticsButtonBottom: CGFloat = 24
         static let wallpaperHeight: CGFloat = 240
+    }
+
+    private enum ActorListSection {
+        case main
     }
 
     private let viewModel: MovieBrowserViewModel
@@ -29,7 +36,6 @@ final class MovieBrowserViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.sectionHeaderTopPadding = 0
         tableView.keyboardDismissMode = .interactive
-        tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ActorCell.self, forCellReuseIdentifier: ActorCell.reuseIdentifier)
         tableView.register(MessageCell.self, forCellReuseIdentifier: MessageCell.reuseIdentifier)
@@ -89,6 +95,35 @@ final class MovieBrowserViewController: UIViewController {
         return button
     }()
 
+    private lazy var dataSource: ActorDataSource = {
+        let dataSource = ActorDataSource(tableView: tableView) { tableView, indexPath, row in
+            switch row {
+            case .actor(let actor):
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: ActorCell.reuseIdentifier,
+                    for: indexPath
+                ) as? ActorCell else {
+                    return UITableViewCell()
+                }
+
+                cell.configure(with: actor)
+                return cell
+            case .message(let message):
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: MessageCell.reuseIdentifier,
+                    for: indexPath
+                ) as? MessageCell else {
+                    return UITableViewCell()
+                }
+
+                cell.configure(message: message)
+                return cell
+            }
+        }
+        dataSource.defaultRowAnimation = .bottom
+        return dataSource
+    }()
+
     init(viewModel: MovieBrowserViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -101,6 +136,7 @@ final class MovieBrowserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHierarchy()
+        configureDataSource()
         bindViewModel()
         bindKeyboard()
 
@@ -207,35 +243,23 @@ final class MovieBrowserViewController: UIViewController {
         }
 
         searchHeaderView.configure(with: content.actorSection.header)
-
-        guard previousContent != nil else {
-            tableView.reloadData()
-            return
-        }
-
-        reloadActorRows(
-            previousRows: previousContent?.actorSection.rows ?? [],
-            currentRows: content.actorSection.rows
-        )
+        applyActorRows(content.actorSection.rows, animatingDifferences: previousContent != nil)
     }
 
-    private func reloadActorRows(
-        previousRows: [MovieActorRowPresentation],
-        currentRows: [MovieActorRowPresentation]
-    ) {
-        let deletedRows = previousRows.indices.map { IndexPath(row: $0, section: 0) }
-        let insertedRows = currentRows.indices.map { IndexPath(row: $0, section: 0) }
+    private func configureDataSource() {
+        _ = dataSource
+    }
 
-        UIView.performWithoutAnimation {
-            tableView.performBatchUpdates {
-                tableView.deleteRows(at: deletedRows, with: .none)
-                tableView.insertRows(at: insertedRows, with: .none)
-            }
-        }
+    private func applyActorRows(_ rows: [MovieActorRowPresentation], animatingDifferences: Bool) {
+        var snapshot = ActorSnapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(rows, toSection: .main)
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 
     private func renderMessage(_ message: String) {
         contentPresentation = nil
+        applyActorRows([], animatingDifferences: false)
         loadingView.stopAnimating()
         tableView.isHidden = true
         statisticsButton.isHidden = true
@@ -280,45 +304,6 @@ final class MovieBrowserViewController: UIViewController {
 
         tableView.contentInset.bottom = bottomInset
         tableView.verticalScrollIndicatorInsets.bottom = bottomInset
-    }
-}
-
-extension MovieBrowserViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        contentPresentation == nil ? 0 : 1
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        contentPresentation?.actorSection.rows.count ?? 0
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let row = contentPresentation?.actorSection.rows[indexPath.row] else {
-            return UITableViewCell()
-        }
-
-        switch row {
-        case .actor(let actor):
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: ActorCell.reuseIdentifier,
-                for: indexPath
-            ) as? ActorCell else {
-                return UITableViewCell()
-            }
-
-            cell.configure(with: actor)
-            return cell
-        case .message(let message):
-            guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: MessageCell.reuseIdentifier,
-                for: indexPath
-            ) as? MessageCell else {
-                return UITableViewCell()
-            }
-
-            cell.configure(message: message)
-            return cell
-        }
     }
 }
 

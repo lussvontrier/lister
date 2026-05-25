@@ -131,8 +131,9 @@ private final class StatisticsLetterCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = .preferredFont(forTextStyle: .headline)
+        label.textColor = .white
         label.textAlignment = .center
-        label.backgroundColor = .secondarySystemGroupedBackground
+        label.backgroundColor = .black
         label.layer.cornerRadius = Layout.circleSize / 2
         label.layer.masksToBounds = true
         return label

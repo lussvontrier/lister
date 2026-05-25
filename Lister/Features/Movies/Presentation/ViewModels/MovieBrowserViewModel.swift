@@ -131,7 +131,7 @@ struct SearchHeaderPresentation: Equatable {
     let text: String
 }
 
-struct ActorRowPresentation: Equatable {
+struct ActorRowPresentation: Hashable {
     let id: Actor.ID
     let name: String
     let role: String?
@@ -145,7 +145,7 @@ struct ActorRowPresentation: Equatable {
     }
 }
 
-enum MovieActorRowPresentation: Equatable {
+enum MovieActorRowPresentation: Hashable {
     case actor(ActorRowPresentation)
     case message(String)
 }
