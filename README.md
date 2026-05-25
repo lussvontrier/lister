@@ -25,10 +25,13 @@ git checkout swiftui
 
 ## Planned Improvements
 
-- Further modularize the feature by extracting presentation-agnostic use cases for movie discovery, cast loading, image loading, caching, and retry behavior, so SwiftUI and UIKit can share more orchestration without sharing UI code.
+- Extract presentation-agnostic use cases for movie discovery, cast loading, image loading, caching, retry behavior, and statistics, so SwiftUI and UIKit can share more orchestration without sharing UI code.
 - Load cast independently from the movie list, with per-movie caching and explicit loading/error states. This would let the app show wallpapers quickly and fetch actors only when needed.
-- Introduce a small reusable keyboard coordination layer for UIKit screens, so keyboard dismissal, inset updates, and input accessory behavior are handled consistently outside individual view controllers.
-- Create a reusable table-view registration and dequeueing abstraction to reduce cell boilerplate while keeping cell configuration type-safe.
 - Expand test coverage around repository mapping, error handling, search behavior, statistics calculation, and view-model state transitions for both UI implementations.
-- Move user-facing copy, layout metrics, colors, and repeated UI values into typed constants/design tokens, with a clear path toward localization.
+- Polish list transitions and filtering animations. UIKit currently uses diffable data sources with non-animated snapshots; with more time, the interaction could be tuned to visually match the SwiftUI implementation.
+- Introduce a reusable keyboard coordination layer for UIKit screens, so keyboard dismissal, inset updates, and input accessory behavior are handled consistently outside individual view controllers.
+- Create a reusable table-view registration and dequeueing abstraction to reduce cell boilerplate while keeping cell configuration type-safe.
+- Move user-facing copy into localized resources and organize layout metrics, colors, and repeated UI values into typed constants or design tokens.
 - Add skeleton or shimmer states for initial loading, image loading, and cast refreshes to make network latency feel more intentional.
+- Add SwiftLint and formatting rules to keep style consistent across branches and reduce review noise.
+- Integrate project and resource generation tools such as SwiftGen, Tuist, or XcodeGen to make assets, strings, configuration, and project structure easier to maintain.
